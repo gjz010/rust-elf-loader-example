@@ -5,7 +5,7 @@ use elf::{abi::PT_LOAD, endian::LittleEndian};
 pub fn load_pie_elf(path: &str) -> (usize, usize) {
     let f = File::open(path).expect("Failed to open file");
     let f2 = File::open(path).expect("Failed to open file");
-    let mut elf = elf::ElfStream::<LittleEndian, _>::open_stream(f).expect("ELF read failed");
+    let elf = elf::ElfStream::<LittleEndian, _>::open_stream(f).expect("ELF read failed");
     let entry = elf.ehdr.e_entry;
     let mut addr_min = usize::MAX;
     let mut addr_max = usize::MIN;
