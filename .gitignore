@@ -1,3 +1,5 @@
 /target
 /.direnv
 hello.bin
+hello.bin.dump
+test.txt
